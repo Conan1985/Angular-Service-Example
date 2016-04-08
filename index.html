@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+
+<head>
+    <link data-require="bootstrap-css@*" data-semver="3.2.0" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="container" data-ng-controller='TempController'>
+<h1 class="jumbotron">Temperature Monitor</h1>
+<form class="well">
+    <label for="temperature">Add Temperature:</label>
+    <input name="temperature" id="temperature" data-ng-model="newTemp">
+    <button data-ng-click="saveTemp()" class="btn btn-primary">Add</button>
+
+    <div ng-hide="check.number">
+        Invalid Input! Please only add a number!
+    </div>
+    <div ng-hide="check.notBig">
+        The temperature is too big! Please try a smaller one.
+    </div>
+    <div ng-hide="check.notSmall">
+        The temperature is too small! Please try a bigger one.
+    </div>
+    <div id="tempAdded">    Temperatures already added: {{tempList}}</div>
+</form>
+
+<hr />
+<section class="well">
+    <button data-ng-click="callMedian()" class="btn btn-success">Get Median Temperature</button>
+    Current Median:
+    <!-- display current media here-->
+    <span id="result">{{tempMedian}}</span>
+</section>
+<hr />
+<p class="well">developer name: Owen Lu</p>
+
+<hr>
+<a href="jasmine-test-runner.html">Run Unit Tests</a>
+<script data-require="angular.js@*" data-semver="1.3.5" src="https://code.angularjs.org/1.3.5/angular.js"></script>
+<script src="app.js"></script>
+</body>
+
+</html>
