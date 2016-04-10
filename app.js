@@ -17,6 +17,12 @@ angular.module('app', [])
             check.notBig=true;
             check.notSmall=true;
             // If the input is a right number, push it to the array, otherwise flag the check.
+
+            /* The right way to check a number:
+            function isNumeric(n) {
+                return !isNaN(parseFloat(n)) && isFinite(n);
+            } */
+
             if(isNaN(temp) || temp==null){
                 check.number=false;
             } else if(temp>Number.MAX_VALUE){
